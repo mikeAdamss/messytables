@@ -1,0 +1,36 @@
+name: CI
+on:
+    push:
+      branches:
+        - master
+    pull_request:
+
+jobs:
+  build:
+    name: Build and Test
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python: [2.7, 3.5, 3.6, 3.7, 3.8]
+
+    steps:
+      - name: Set up locale
+        run: |
+          sudo locale-gen en_GB.UTF-8
+
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python }}
+
+      - name: Install packages
+        run: |
+          pip install wheel coverage
+          pip install -e .
+          pip install -r requirements-test.txt
+
+      - name: Run tests
+        run: nosetests --with-coverage --cover-package=messytables

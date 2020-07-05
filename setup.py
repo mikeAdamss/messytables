@@ -39,11 +39,11 @@ setup(
     include_package_data=False,
     zip_safe=False,
     install_requires=[
-        'xlrd>=0.8.0',
+        'xlrd>=1.2.0',
         'python-magic>=0.4.12',  # used for type guessing
-        'chardet>=2.3.0',
+        'chardet>=3.0.4',
         'python-dateutil>=1.5.0',
-        'lxml>=3.2',
+        'lxml>=4.5.1',
         'requests',
         'six>=1.9', # until messytables->html5lib releases https://github.com/html5lib/html5lib-python/pull/301
         'html5lib',
