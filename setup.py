@@ -39,7 +39,7 @@ setup(
     include_package_data=False,
     zip_safe=False,
     install_requires=[
-        'xlrd>=1.2.0',
+        'xlrd==2.0.1',
         'python-magic>=0.4.12',  # used for type guessing
         'chardet>=3.0.4',
         'python-dateutil>=1.5.0',
